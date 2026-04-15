@@ -3,7 +3,11 @@ const router = express.Router();
 // const { initDb } = require('../db');
 
 router.get('/', (req, res) => {
-    res.send(' all categories');
+   try{
+
+   }catch(err){
+    res.status(500).json({ error: 'Something went wrong!' });
+   }
 });
 
 

@@ -19,9 +19,18 @@ router.get('/:id', (req, res) => {
     res.send(`User ID: ${req.params.id}`);
 });
 
-// POST create user
-router.post('/', (req, res) => {
-    res.send('User Created');
+
+router.post('/create', (req, res) => {
+    try{
+
+    }catch(err){
+        res.status(500).json({ error: 'Something went wrong!' });
+    }
+    
+});
+
+router.put('/:id', (req, res) => {
+
 });
 
 module.exports = router;
