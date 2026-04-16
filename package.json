@@ -16,6 +16,7 @@
     "@neondatabase/serverless": "^0.9.4",
     "dotenv": "^17.4.0",
     "express": "^5.2.1",
+    "firebase-admin": "^13.8.0",
     "pg": "^8.20.0"
   }
 }

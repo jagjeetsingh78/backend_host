@@ -1,19 +1,28 @@
 const express = require('express');
 const router = express.Router();
-// const { initDb } = require('../db');
+const { pool } = require('../db');
 
-router.get('/', (req, res) => {
-   try{
+const getCategories = async (req, res) => {
+  try {
+    const categories = await pool.query(
+      'SELECT * FROM categories ORDER BY id ASC',
+    );
 
-   }catch(err){
-    res.status(500).json({ error: 'Something went wrong!' });
-   }
-});
+    res.json({
+      success: true,
+      user: req.dbUser,
+      data: categories.rows,
+    });
+
+  } catch (err) {
+    console.error("DB ERROR 👉", err); // 👈 ADD THIS
+    res.status(500).json({ message: err.message });
+  }
+};
 
 
 
 
+router.get('/', getCategories);
 
-
-
-module.exports = router;
+module.exports = router;  
