@@ -11,14 +11,14 @@ const checkUser = require('./Middlewares/checkUser');
 app.use(express.json());
 
 // Import routes
-const userRouter = require('./Routes/users');
+const userRoutes = require('./routes/users');
 const testRouter = require('./routes/tests');
 const categoriesRouter = require('./routes/categories');
 const verifyToken = require('./Middlewares/authMiddleware');
 
 // Mount routes
 app.use('/categories', categoriesRouter);
-app.use('/users', userRouter);
+app.use('/users', userRoutes);
 app.use('/tests', testRouter);
 app.use('/exams', examsRouter);
 
