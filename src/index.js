@@ -6,7 +6,7 @@ const { initDb } = require('./db');
 const examsRouter = require('./routes/exams');
 const authMiddleware = require('./Middlewares/authMiddleware');
 const checkUser = require('./Middlewares/checkUser');
-
+const subjectsRouter = require('./routes/subjects');
 // Middleware
 app.use(express.json());
 
@@ -21,6 +21,7 @@ app.use('/categories', categoriesRouter);
 app.use('/users', userRoutes);
 app.use('/tests', testRouter);
 app.use('/exams', examsRouter);
+app.use('/subjects',verifyToken,checkUser,subjectsRouter);
 
 // Health check endpoint
 app.get('/', (req, res) => {
