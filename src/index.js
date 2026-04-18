@@ -21,7 +21,7 @@ app.use('/categories', categoriesRouter);
 app.use('/users', userRoutes);
 app.use('/tests', testRouter);
 app.use('/exams', examsRouter);
-app.use('/subjects',verifyToken,checkUser,subjectsRouter);
+app.use('/subjects',subjectsRouter);
 
 // Health check endpoint
 app.get('/', (req, res) => {
