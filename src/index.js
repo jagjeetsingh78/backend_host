@@ -12,10 +12,12 @@ const categoriesRouter = require('./routes/categories');
 const examsRouter = require('./routes/exams');
 const subjectsRouter = require('./routes/subjects');
 const quizzesRouter = require('./routes/quizzes');
+const quotes = require('./routes/quotes');
 
 app.use(express.json());
 
 // ✅ Mount all routes properly
+app.use('/quotes', quotes);
 app.use('/categories', categoriesRouter);
 app.use('/users', userRoutes);
 app.use('/tests', testRouter);
